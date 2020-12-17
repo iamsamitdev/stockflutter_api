@@ -76,6 +76,19 @@ return function (App $app)
 
         });
 
+        // Get Users by ID
+        $app->get('/users/{id}', function (Request $request, Response $response, array $args) use ($container)
+        {
+            
+            // Read User By ID
+            $sql  = "SELECT * FROM users WHERE id='$args[id]'";
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute();
+            $users = $stmt->fetch();
+
+            return $this->response->withJson($users);
+        });
+
         // Get All Products (Method GET)
         $app->get('/products', function (Request $request, Response $response, array $args) use ($container)
         {

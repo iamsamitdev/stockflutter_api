@@ -18,7 +18,7 @@ return [
 
         // Config connect database
         'db' => [
-            'host' => 'mysql',
+            'host' => 'mysql', // localhost
             'dbname' => 'stockdb',
             'user' => 'root',
             'pass' => '123456'
